@@ -1,0 +1,15 @@
+{
+	"logins": [
+		{ "emailId": "hr@gmail.com", "password": "hr@123", "typeofuser": "hr" }
+	],
+	"employees": [
+		{
+			"name": "raj",
+			"lname": "patil",
+			"age": 21,
+			"department": "",
+			"leaveStatus": "applied",
+			"appliedLeave": "yes"
+		}
+	]
+}
