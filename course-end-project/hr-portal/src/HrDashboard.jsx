@@ -1,26 +1,32 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
+import Navigation from './components/Navigation';
+import Dashboard from './components/Dashboard';
+import HRAttendanceManagement from './components/HRAttendanceManagement';
 
 function HrDashboard() {
+	const location = useLocation();
+	const [userName] = useState('HR Manager'); // In real app, get from auth context
 
-    let navigate = useNavigate();
+	const renderContent = () => {
+		const path = location.pathname;
 
-let logout = ()=> {
-    navigate("/")
+		if (path === '/hrDashboard' || path === '/hrDashboard/') {
+			return <Dashboard userType='hr' userName={userName} />;
+		} else if (path.includes('attendance-requests')) {
+			return <HRAttendanceManagement />;
+		} else {
+			// This will render AddEmployee, DisplayEmployee, and other child routes
+			return <Outlet />;
+		}
+	};
+
+	return (
+		<div className='hr-dashboard'>
+			<Navigation userType='hr' userName={userName} />
+			<main className='dashboard-content'>{renderContent()}</main>
+		</div>
+	);
 }
-    return(
-        <div>
-            <h3>Hr Home Page</h3>
-            <Link to="addEmployee">Add Employee</Link>|
-            <Link to="displayEmployee">View All Employee</Link>
 
-            <hr/>
-
-            <div>
-                <Outlet/>
-            </div>
-            <br/>
-            <input type="button" value="logout" onClick={logout}/>
-        </div>
-    )
-}
 export default HrDashboard;
