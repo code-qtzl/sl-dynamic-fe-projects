@@ -1,6 +1,11 @@
 {
 	"logins": [
-		{ "emailId": "hr@gmail.com", "password": "hr@123", "typeofuser": "hr" }
+		{ "emailId": "hr@gmail.com", "password": "hr@123", "typeofuser": "hr" },
+		{
+			"emailId": "me@mail.com",
+			"password": "p@123",
+			"typeofuser": "employee"
+		}
 	],
 	"employees": [
 		{
