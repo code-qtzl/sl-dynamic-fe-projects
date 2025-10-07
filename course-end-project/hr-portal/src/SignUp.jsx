@@ -10,7 +10,6 @@ function SignUp() {
 		lastName: '',
 		email: '',
 		phone: '',
-		dateOfBirth: '',
 
 		// Account Information
 		password: '',
@@ -19,13 +18,6 @@ function SignUp() {
 		// Employment Information
 		department: '',
 		position: '',
-		joiningDate: '',
-		employeeId: '',
-
-		// Additional Information
-		address: '',
-		emergencyContact: '',
-		emergencyPhone: '',
 	});
 
 	const [errors, setErrors] = useState({});
@@ -70,8 +62,6 @@ function SignUp() {
 		) {
 			newErrors.phone = 'Phone number is invalid';
 		}
-		if (!formData.dateOfBirth)
-			newErrors.dateOfBirth = 'Date of birth is required';
 
 		return newErrors;
 	};
@@ -93,29 +83,6 @@ function SignUp() {
 			newErrors.department = 'Department is required';
 		if (!formData.position.trim())
 			newErrors.position = 'Position is required';
-		if (!formData.joiningDate)
-			newErrors.joiningDate = 'Joining date is required';
-		if (!formData.employeeId.trim())
-			newErrors.employeeId = 'Employee ID is required';
-
-		return newErrors;
-	};
-
-	const validateStep3 = () => {
-		const newErrors = {};
-
-		if (!formData.address.trim()) newErrors.address = 'Address is required';
-		if (!formData.emergencyContact.trim())
-			newErrors.emergencyContact = 'Emergency contact name is required';
-		if (!formData.emergencyPhone.trim()) {
-			newErrors.emergencyPhone = 'Emergency phone is required';
-		} else if (
-			!/^[+]?[1-9][\d]{0,15}$/.test(
-				formData.emergencyPhone.replace(/[\s\-()]/g, ''),
-			)
-		) {
-			newErrors.emergencyPhone = 'Emergency phone number is invalid';
-		}
 
 		return newErrors;
 	};
@@ -125,7 +92,6 @@ function SignUp() {
 
 		if (step === 1) stepErrors = validateStep1();
 		else if (step === 2) stepErrors = validateStep2();
-		else if (step === 3) stepErrors = validateStep3();
 
 		if (Object.keys(stepErrors).length > 0) {
 			setErrors(stepErrors);
@@ -144,9 +110,9 @@ function SignUp() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		const step3Errors = validateStep3();
-		if (Object.keys(step3Errors).length > 0) {
-			setErrors(step3Errors);
+		const step2Errors = validateStep2();
+		if (Object.keys(step2Errors).length > 0) {
+			setErrors(step2Errors);
 			return;
 		}
 
@@ -182,22 +148,10 @@ function SignUp() {
 			const employeeData = {
 				name: formData.firstName,
 				lname: formData.lastName,
-				age:
-					new Date().getFullYear() -
-					new Date(formData.dateOfBirth).getFullYear(),
 				department: formData.department,
 				position: formData.position,
 				email: formData.email,
 				phone: formData.phone,
-				joiningDate: formData.joiningDate,
-				employeeId: formData.employeeId,
-				dateOfBirth: formData.dateOfBirth,
-				address: formData.address,
-				emergencyContact: formData.emergencyContact,
-				emergencyPhone: formData.emergencyPhone,
-				leaveStatus: 'available',
-				appliedLeave: 'no',
-				createdAt: new Date().toISOString(),
 			};
 
 			// Add to login system
@@ -284,46 +238,21 @@ function SignUp() {
 				)}
 			</div>
 
-			<div className='row'>
-				<div className='col-md-6'>
-					<div className='form-group'>
-						<label>Phone Number *</label>
-						<input
-							type='tel'
-							name='phone'
-							value={formData.phone}
-							onChange={handleChange}
-							className={`form-control ${
-								errors.phone ? 'is-invalid' : ''
-							}`}
-							placeholder='+1 (555) 123-4567'
-						/>
-						{errors.phone && (
-							<div className='invalid-feedback'>
-								{errors.phone}
-							</div>
-						)}
-					</div>
-				</div>
-				<div className='col-md-6'>
-					<div className='form-group'>
-						<label>Date of Birth *</label>
-						<input
-							type='date'
-							name='dateOfBirth'
-							value={formData.dateOfBirth}
-							onChange={handleChange}
-							className={`form-control ${
-								errors.dateOfBirth ? 'is-invalid' : ''
-							}`}
-						/>
-						{errors.dateOfBirth && (
-							<div className='invalid-feedback'>
-								{errors.dateOfBirth}
-							</div>
-						)}
-					</div>
-				</div>
+			<div className='form-group'>
+				<label>Phone Number *</label>
+				<input
+					type='tel'
+					name='phone'
+					value={formData.phone}
+					onChange={handleChange}
+					className={`form-control ${
+						errors.phone ? 'is-invalid' : ''
+					}`}
+					placeholder='+1 (555) 123-4567'
+				/>
+				{errors.phone && (
+					<div className='invalid-feedback'>{errors.phone}</div>
+				)}
 			</div>
 		</div>
 	);
@@ -422,117 +351,6 @@ function SignUp() {
 					</div>
 				</div>
 			</div>
-
-			<div className='row'>
-				<div className='col-md-6'>
-					<div className='form-group'>
-						<label>Employee ID *</label>
-						<input
-							type='text'
-							name='employeeId'
-							value={formData.employeeId}
-							onChange={handleChange}
-							className={`form-control ${
-								errors.employeeId ? 'is-invalid' : ''
-							}`}
-							placeholder='Enter employee ID'
-						/>
-						{errors.employeeId && (
-							<div className='invalid-feedback'>
-								{errors.employeeId}
-							</div>
-						)}
-					</div>
-				</div>
-				<div className='col-md-6'>
-					<div className='form-group'>
-						<label>Joining Date *</label>
-						<input
-							type='date'
-							name='joiningDate'
-							value={formData.joiningDate}
-							onChange={handleChange}
-							className={`form-control ${
-								errors.joiningDate ? 'is-invalid' : ''
-							}`}
-						/>
-						{errors.joiningDate && (
-							<div className='invalid-feedback'>
-								{errors.joiningDate}
-							</div>
-						)}
-					</div>
-				</div>
-			</div>
-		</div>
-	);
-
-	const renderStep3 = () => (
-		<div className='signup-step'>
-			<h3>Additional Information</h3>
-			<div className='form-group'>
-				<label>Address *</label>
-				<textarea
-					name='address'
-					value={formData.address}
-					onChange={handleChange}
-					className={`form-control ${
-						errors.address ? 'is-invalid' : ''
-					}`}
-					rows='3'
-					placeholder='Enter your full address'
-				/>
-				{errors.address && (
-					<div className='invalid-feedback'>{errors.address}</div>
-				)}
-			</div>
-
-			<div className='row'>
-				<div className='col-md-6'>
-					<div className='form-group'>
-						<label>Emergency Contact Name *</label>
-						<input
-							type='text'
-							name='emergencyContact'
-							value={formData.emergencyContact}
-							onChange={handleChange}
-							className={`form-control ${
-								errors.emergencyContact ? 'is-invalid' : ''
-							}`}
-							placeholder='Emergency contact person'
-						/>
-						{errors.emergencyContact && (
-							<div className='invalid-feedback'>
-								{errors.emergencyContact}
-							</div>
-						)}
-					</div>
-				</div>
-				<div className='col-md-6'>
-					<div className='form-group'>
-						<label>Emergency Contact Phone *</label>
-						<input
-							type='tel'
-							name='emergencyPhone'
-							value={formData.emergencyPhone}
-							onChange={handleChange}
-							className={`form-control ${
-								errors.emergencyPhone ? 'is-invalid' : ''
-							}`}
-							placeholder='+1 (555) 987-6543'
-						/>
-						{errors.emergencyPhone && (
-							<div className='invalid-feedback'>
-								{errors.emergencyPhone}
-							</div>
-						)}
-					</div>
-				</div>
-			</div>
-
-			{errors.submit && (
-				<div className='alert alert-danger mt-3'>{errors.submit}</div>
-			)}
 		</div>
 	);
 
@@ -542,8 +360,8 @@ function SignUp() {
 				<div className='signup-header'>
 					<h2>Employee Registration</h2>
 					<p>
-						Join our organization - Complete your registration in 3
-						steps
+						Join our organization - Complete your registration in 2
+						simple steps
 					</p>
 				</div>
 
@@ -569,27 +387,21 @@ function SignUp() {
 						</div>
 						<span>Account & Job</span>
 					</div>
-					<div className='progress-line'></div>
-					<div className='progress-step'>
-						<div
-							className={`step-circle ${
-								step >= 3 ? 'active' : ''
-							}`}
-						>
-							3
-						</div>
-						<span>Additional Info</span>
-					</div>
 				</div>
 
 				<form
 					onSubmit={
-						step === 3 ? handleSubmit : (e) => e.preventDefault()
+						step === 2 ? handleSubmit : (e) => e.preventDefault()
 					}
 				>
 					{step === 1 && renderStep1()}
 					{step === 2 && renderStep2()}
-					{step === 3 && renderStep3()}
+
+					{errors.submit && (
+						<div className='alert alert-danger mt-3'>
+							{errors.submit}
+						</div>
+					)}
 
 					<div className='signup-buttons'>
 						{step > 1 && (
@@ -603,7 +415,7 @@ function SignUp() {
 							</button>
 						)}
 
-						{step < 3 ? (
+						{step < 2 ? (
 							<button
 								type='button'
 								className='btn btn-primary'

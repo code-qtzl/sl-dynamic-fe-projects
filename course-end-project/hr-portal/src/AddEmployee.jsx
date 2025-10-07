@@ -5,13 +5,10 @@ function AddEmployee() {
 	const [employee, setEmployee] = useState({
 		name: '',
 		lname: '',
-		age: '',
 		department: '',
 		position: '',
 		email: '',
 		phone: '',
-		joiningDate: '',
-		salary: '',
 	});
 
 	const [isSubmitting, setIsSubmitting] = useState(false);
@@ -48,12 +45,10 @@ function AddEmployee() {
 		const requiredFields = [
 			'name',
 			'lname',
-			'age',
 			'department',
 			'position',
 			'email',
 			'phone',
-			'joiningDate',
 		];
 		for (const field of requiredFields) {
 			if (!employee[field] || employee[field].toString().trim() === '') {
@@ -78,22 +73,13 @@ function AddEmployee() {
 		try {
 			// Prepare employee data for API
 			const employeeData = {
-				name: employee.name.trim(),
-				lname: employee.lname.trim(),
-				age: parseInt(employee.age),
+				name: employee.name,
+				lname: employee.lname,
 				department: employee.department,
-				position: employee.position.trim(),
-				email: employee.email.trim().toLowerCase(),
-				phone: employee.phone.trim(),
-				joiningDate: employee.joiningDate,
-				salary: employee.salary ? parseFloat(employee.salary) : null,
-				leaveStatus: 'available',
-				appliedLeave: 'no',
-				createdAt: new Date().toISOString(),
-				createdBy: 'HR',
-			};
-
-			// Check if email already exists
+				position: employee.position,
+				email: employee.email,
+				phone: employee.phone,
+			}; // Check if email already exists
 			const existingEmployees = await axios.get(
 				'http://localhost:3000/employees',
 			);
@@ -127,7 +113,6 @@ function AddEmployee() {
 					email: '',
 					phone: '',
 					joiningDate: '',
-					salary: '',
 				});
 			}
 		} catch (error) {
@@ -286,34 +271,6 @@ function AddEmployee() {
 								fontWeight: '600',
 							}}
 						>
-							Age *
-						</label>
-						<input
-							type='number'
-							name='age'
-							value={employee.age}
-							onChange={handleChange}
-							min='18'
-							max='70'
-							required
-							style={{
-								width: '100%',
-								padding: '0.75rem',
-								border: '2px solid #e0e0e0',
-								borderRadius: '8px',
-								fontSize: '1rem',
-							}}
-						/>
-					</div>
-
-					<div className='form-group'>
-						<label
-							style={{
-								display: 'block',
-								marginBottom: '0.5rem',
-								fontWeight: '600',
-							}}
-						>
 							Department *
 						</label>
 						<select
@@ -401,40 +358,15 @@ function AddEmployee() {
 								fontWeight: '600',
 							}}
 						>
-							Phone Number
+							Phone Number *
 						</label>
 						<input
 							type='tel'
 							name='phone'
 							value={employee.phone}
 							onChange={handleChange}
-							placeholder='+1 (555) 123-4567'
-							style={{
-								width: '100%',
-								padding: '0.75rem',
-								border: '2px solid #e0e0e0',
-								borderRadius: '8px',
-								fontSize: '1rem',
-							}}
-						/>
-					</div>
-
-					<div className='form-group'>
-						<label
-							style={{
-								display: 'block',
-								marginBottom: '0.5rem',
-								fontWeight: '600',
-							}}
-						>
-							Joining Date *
-						</label>
-						<input
-							type='date'
-							name='joiningDate'
-							value={employee.joiningDate}
-							onChange={handleChange}
 							required
+							placeholder='+1 (555) 123-4567'
 							style={{
 								width: '100%',
 								padding: '0.75rem',
@@ -455,8 +387,7 @@ function AddEmployee() {
 						disabled={isSubmitting}
 						style={{
 							padding: '1rem 2rem',
-							background:
-								'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+							background: '#3b82f6',
 							color: 'white',
 							border: 'none',
 							borderRadius: '8px',
@@ -465,6 +396,16 @@ function AddEmployee() {
 							cursor: isSubmitting ? 'not-allowed' : 'pointer',
 							opacity: isSubmitting ? 0.7 : 1,
 							transition: 'all 0.3s ease',
+						}}
+						onMouseEnter={(e) => {
+							if (!isSubmitting) {
+								e.target.style.background = '#2563eb';
+							}
+						}}
+						onMouseLeave={(e) => {
+							if (!isSubmitting) {
+								e.target.style.background = '#3b82f6';
+							}
 						}}
 					>
 						{isSubmitting ? 'Adding Employee...' : 'Add Employee'}

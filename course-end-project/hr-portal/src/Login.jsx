@@ -7,14 +7,12 @@ function Login() {
 	const [emailId, setEmailId] = useState('');
 	const [password, setPassword] = useState('');
 	const [typeOfUser, setTypeOfUser] = useState('');
-	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState('');
 	const URL = 'http://localhost:3000/logins';
 	const navigate = useNavigate();
 
 	const signIn = async (event) => {
 		event.preventDefault();
-		setIsLoading(true);
 		setError('');
 
 		try {
@@ -50,8 +48,6 @@ function Login() {
 		} catch (error) {
 			console.error('Login error:', error);
 			setError('Login failed. Please try again later.');
-		} finally {
-			setIsLoading(false);
 		}
 	};
 
@@ -117,7 +113,6 @@ function Login() {
 											setTypeOfUser(event.target.value)
 										}
 									/>
-									<span className='radio-custom'></span>
 									<span className='radio-label'>
 										<span className='role-icon'>👨‍💼</span>
 										HR Manager
@@ -133,7 +128,6 @@ function Login() {
 											setTypeOfUser(event.target.value)
 										}
 									/>
-									<span className='radio-custom'></span>
 									<span className='radio-label'>
 										<span className='role-icon'>👤</span>
 										Employee
@@ -145,22 +139,10 @@ function Login() {
 						<div className='form-actions'>
 							<button
 								type='submit'
-								className='btn btn-primary'
-								disabled={
-									isLoading ||
-									!emailId ||
-									!password ||
-									!typeOfUser
-								}
+								className='btn btn-primary remove-spinner'
+								disabled={!emailId || !password || !typeOfUser}
 							>
-								{isLoading ? (
-									<>
-										<span className='loading-spinner'></span>
-										Signing In...
-									</>
-								) : (
-									'Sign In'
-								)}
+								Sign In
 							</button>
 						</div>
 

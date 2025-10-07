@@ -1,7 +1,7 @@
 /* Signup.css */
 .signup-container {
 	min-height: 100vh;
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: #f9fafb;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -12,23 +12,14 @@
 
 .signup-card {
 	background: white;
-	border-radius: 20px;
+	border-radius: 12px;
 	padding: 2.5rem;
-	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	border: 1px solid #e5e7eb;
 	width: 100%;
 	max-width: 800px;
 	position: relative;
 	overflow: hidden;
-}
-
-.signup-card::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 5px;
-	background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
 }
 
 .signup-header {
@@ -52,10 +43,12 @@
 /* Progress Bar */
 .progress-bar {
 	display: flex;
+	flex-direction: row !important;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 3rem;
 	padding: 0 2rem;
+	background-color: transparent;
 }
 
 .progress-step {
@@ -82,7 +75,7 @@
 }
 
 .step-circle.active {
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: #3b82f6;
 	color: white;
 	transform: scale(1.1);
 }
@@ -124,7 +117,7 @@
 	transform: translateX(-50%);
 	width: 60px;
 	height: 3px;
-	background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+	background: #3b82f6;
 	border-radius: 2px;
 }
 
@@ -152,8 +145,8 @@
 
 .form-control:focus {
 	outline: none;
-	border-color: #667eea;
-	box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+	border-color: #3b82f6;
+	box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 	transform: translateY(-1px);
 }
 
@@ -223,13 +216,14 @@ textarea.form-control {
 }
 
 .btn-primary {
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: #3b82f6;
 	color: white;
 }
 
 .btn-primary:hover:not(:disabled) {
-	transform: translateY(-2px);
-	box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+	background: #2563eb;
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
 
 .btn-secondary {
@@ -244,13 +238,14 @@ textarea.form-control {
 }
 
 .btn-success {
-	background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+	background: #10b981;
 	color: white;
 }
 
 .btn-success:hover:not(:disabled) {
-	transform: translateY(-2px);
-	box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+	background: #059669;
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
 }
 
 /* Footer */
@@ -267,14 +262,14 @@ textarea.form-control {
 }
 
 .signup-footer a {
-	color: #667eea;
+	color: #3b82f6;
 	text-decoration: none;
 	font-weight: 600;
 	transition: color 0.3s ease;
 }
 
 .signup-footer a:hover {
-	color: #764ba2;
+	color: #2563eb;
 	text-decoration: underline;
 }
 
@@ -407,7 +402,7 @@ textarea.form-control {
 /* Focus states for accessibility */
 .btn:focus,
 .form-control:focus {
-	outline: 2px solid #667eea;
+	outline: 2px solid #3b82f6;
 	outline-offset: 2px;
 }
 

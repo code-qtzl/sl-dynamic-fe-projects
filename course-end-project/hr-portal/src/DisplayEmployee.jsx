@@ -22,14 +22,10 @@ function DisplayEmployee() {
 				// Ensure all required fields have default values if missing
 				name: employee.name || 'N/A',
 				lname: employee.lname || 'N/A',
-				age: employee.age || 0,
 				department: employee.department || 'Unassigned',
 				position: employee.position || 'N/A',
 				email: employee.email || 'N/A',
 				phone: employee.phone || 'N/A',
-				joiningDate: employee.joiningDate || 'N/A',
-				leaveStatus: employee.leaveStatus || 'available',
-				appliedLeave: employee.appliedLeave || 'no',
 			}));
 
 			setEmployees(processedEmployees);
@@ -64,44 +60,6 @@ function DisplayEmployee() {
 			filterDepartment === '' || employee.department === filterDepartment;
 		return matchesSearch && matchesDepartment;
 	});
-
-	const getStatusBadge = (status) => {
-		const badgeStyle = {
-			padding: '0.25rem 0.75rem',
-			borderRadius: '20px',
-			fontSize: '0.75rem',
-			fontWeight: '600',
-			textTransform: 'uppercase',
-		};
-
-		if (status === 'applied') {
-			return (
-				<span
-					style={{
-						...badgeStyle,
-						backgroundColor: '#fff3cd',
-						color: '#856404',
-						border: '1px solid #ffeaa7',
-					}}
-				>
-					On Leave
-				</span>
-			);
-		} else {
-			return (
-				<span
-					style={{
-						...badgeStyle,
-						backgroundColor: '#d4edda',
-						color: '#155724',
-						border: '1px solid #c3e6cb',
-					}}
-				>
-					Available
-				</span>
-			);
-		}
-	};
 
 	if (loading) {
 		return (
@@ -180,6 +138,7 @@ function DisplayEmployee() {
 						<option value='Marketing'>Marketing</option>
 						<option value='Finance'>Finance</option>
 						<option value='Sales'>Sales</option>
+						<option value='Operations'>Operations</option>
 					</select>
 				</div>
 				<div>
@@ -188,7 +147,7 @@ function DisplayEmployee() {
 						disabled={loading}
 						style={{
 							padding: '0.75rem 1.5rem',
-							backgroundColor: loading ? '#6c757d' : '#667eea',
+							backgroundColor: loading ? '#6c757d' : '#3b82f6',
 							color: 'white',
 							border: 'none',
 							borderRadius: '8px',
@@ -196,6 +155,16 @@ function DisplayEmployee() {
 							cursor: loading ? 'not-allowed' : 'pointer',
 							fontWeight: '500',
 							transition: 'all 0.3s ease',
+						}}
+						onMouseEnter={(e) => {
+							if (!loading) {
+								e.target.style.backgroundColor = '#2563eb';
+							}
+						}}
+						onMouseLeave={(e) => {
+							if (!loading) {
+								e.target.style.backgroundColor = '#3b82f6';
+							}
 						}}
 					>
 						{loading ? 'Refreshing...' : '🔄 Refresh'}
@@ -263,7 +232,6 @@ function DisplayEmployee() {
 									{employee.position}
 								</p>
 							</div>
-							{getStatusBadge(employee.leaveStatus)}
 						</div>
 
 						<div
@@ -328,45 +296,6 @@ function DisplayEmployee() {
 									</span>
 								</div>
 							)}
-
-							<div
-								style={{
-									display: 'flex',
-									alignItems: 'center',
-									gap: '0.5rem',
-								}}
-							>
-								<span style={{ fontSize: '1rem' }}>📅</span>
-								<span
-									style={{
-										color: '#555',
-										fontSize: '0.9rem',
-									}}
-								>
-									Joined:{' '}
-									{new Date(
-										employee.joiningDate,
-									).toLocaleDateString()}
-								</span>
-							</div>
-
-							<div
-								style={{
-									display: 'flex',
-									alignItems: 'center',
-									gap: '0.5rem',
-								}}
-							>
-								<span style={{ fontSize: '1rem' }}>🎂</span>
-								<span
-									style={{
-										color: '#555',
-										fontSize: '0.9rem',
-									}}
-								>
-									Age: {employee.age}
-								</span>
-							</div>
 						</div>
 					</div>
 				))}

@@ -26,49 +26,15 @@ function App() {
 						element={<DisplayEmployee />}
 					></Route>
 					<Route
-						path='attendance-requests'
-						element={<div>HR Attendance Management</div>}
-					></Route>
-					<Route
 						path='employees'
 						element={<DisplayEmployee />}
-					></Route>
-					<Route
-						path='leave-requests'
-						element={<div>Leave Requests Management</div>}
-					></Route>
-					<Route path='reports' element={<div>Reports</div>}></Route>
-					<Route
-						path='settings'
-						element={<div>Settings</div>}
 					></Route>
 				</Route>
 
 				<Route
 					path='/employeeDashboard/*'
 					element={<EmployeeDashboard />}
-				>
-					<Route
-						path='profile'
-						element={<div>My Profile</div>}
-					></Route>
-					<Route
-						path='leave'
-						element={<div>Leave Management</div>}
-					></Route>
-					<Route
-						path='attendance'
-						element={<div>Attendance History</div>}
-					></Route>
-					<Route
-						path='regularization'
-						element={<div>Attendance Regularization</div>}
-					></Route>
-					<Route
-						path='payslips'
-						element={<div>Payslips</div>}
-					></Route>
-				</Route>
+				></Route>
 			</Routes>
 		</>
 	);

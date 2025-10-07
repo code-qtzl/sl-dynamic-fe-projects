@@ -1,68 +1,72 @@
 {
-  "logins": [
-    {
-      "emailId": "hr@gmail.com",
-      "password": "hr@123",
-      "typeofuser": "hr",
-      "id": "b4e6"
-    },
-    {
-      "emailId": "me@mail.com",
-      "password": "p@123",
-      "typeofuser": "employee",
-      "id": "2198"
-    },
-    {
-      "id": "c539",
-      "emailId": "j@mail.com",
-      "password": "password1",
-      "typeofuser": "employee"
-    }
-  ],
-  "employees": [
-    {
-      "name": "raj",
-      "lname": "patil",
-      "age": 21,
-      "department": "",
-      "leaveStatus": "applied",
-      "appliedLeave": "yes",
-      "id": "8382"
-    },
-    {
-      "id": "73c5",
-      "name": "joe",
-      "lname": "mo",
-      "age": 39,
-      "department": "IT",
-      "position": "it man",
-      "email": "j@mail.com",
-      "phone": "1231231234",
-      "joiningDate": "2025-10-04",
-      "employeeId": "123",
-      "dateOfBirth": "1986-01-28",
-      "address": "123 test ",
-      "emergencyContact": "momma",
-      "emergencyPhone": "1231231234",
-      "leaveStatus": "available",
-      "appliedLeave": "no",
-      "createdAt": "2025-10-05T01:50:38.009Z"
-    },
-    {
-      "id": "db2f",
-      "name": "b",
-      "lname": "bman",
-      "age": 40,
-      "department": "IT",
-      "position": "it man",
-      "email": "b@mail.com",
-      "phone": "1231231234",
-      "joiningDate": "2025-10-04",
-      "salary": null,
-      "leaveStatus": "available",
-      "appliedLeave": "no",
-      "createdAt": "2025-10-05T01:59:40.486Z",
-      "createdBy": "HR"
-    }
-  ]
+	"logins": [
+		{
+			"emailId": "hr@gmail.com",
+			"password": "hr@123",
+			"typeofuser": "hr",
+			"id": "b4e6"
+		},
+		{
+			"emailId": "me@mail.com",
+			"password": "p@123",
+			"typeofuser": "employee",
+			"id": "2198"
+		},
+		{
+			"id": "c539",
+			"emailId": "j@mail.com",
+			"password": "password1",
+			"typeofuser": "employee"
+		},
+		{
+			"id": "0fe8",
+			"emailId": "bm@mail.com",
+			"password": "password1",
+			"typeofuser": "employee"
+		}
+	],
+	"employees": [
+		{
+			"id": "73c5",
+			"name": "joe",
+			"lname": "mo",
+			"department": "IT",
+			"position": "it man",
+			"email": "j@mail.com",
+			"phone": "1231231234"
+		},
+		{
+			"id": "db2f",
+			"name": "b",
+			"lname": "bman",
+			"age": 40,
+			"department": "IT",
+			"position": "it man",
+			"email": "b@mail.com",
+			"phone": "1231231234",
+			"joiningDate": "2025-10-04",
+			"leaveStatus": "available",
+			"appliedLeave": "no",
+			"createdAt": "2025-10-05T01:59:40.486Z",
+			"createdBy": "HR"
+		},
+		{
+			"id": "8ab2",
+			"name": "big",
+			"lname": "moe",
+			"department": "HR",
+			"position": "hr man",
+			"email": "bm@mail.com",
+			"phone": "1231231234"
+		},
+		{
+			"id": "acdb",
+			"name": "scar",
+			"lname": "face",
+			"department": "Operations",
+			"position": "ops man",
+			"email": "sf@mail.com",
+			"phone": "1231231234"
+		}
+	]
 }
