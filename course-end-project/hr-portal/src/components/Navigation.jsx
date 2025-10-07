@@ -21,10 +21,25 @@ function Navigation({ userType, userName = 'User' }) {
 			label: 'View Employees',
 			icon: '👥',
 		},
+		{
+			path: '/hrDashboard/leaveManagement',
+			label: 'Leave Management',
+			icon: '📋',
+		},
 	];
 
 	const employeeMenuItems = [
-		// { path: '/employeeDashboard', label: 'Dashboard', icon: '📊' },
+		{ path: '/employeeDashboard', label: 'Dashboard', icon: '📊' },
+		{
+			path: '/employeeDashboard/leaveRequest',
+			label: 'Request Leave',
+			icon: '📝',
+		},
+		{
+			path: '/employeeDashboard/leaveHistory',
+			label: 'Leave History',
+			icon: '📋',
+		},
 	];
 
 	const menuItems = userType === 'hr' ? hrMenuItems : employeeMenuItems;
