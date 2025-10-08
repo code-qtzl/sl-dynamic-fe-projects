@@ -112,6 +112,18 @@ A clean, professional HR Portal built with React that provides streamlined emplo
 -   **Real-time Sync**: Automatic data updates across all application components
 -   **Data Validation**: Client and server-side validation for all forms
 
+## 📸 Screenshots
+
+<div align="left">
+  <img src="img/login-screenshot.png" alt="Login" width="300"/>
+  <p><em>Login</em></p>
+</div>
+
+<div align="left">
+  <img src="img/hr-screenshot.png" alt="HR Dashboard" width="300"/>
+  <p><em>HR Dashboard</em></p>
+</div>
+
 ---
 
 **Built with ❤️ for modern, simplified HR management**
