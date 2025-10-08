@@ -1,134 +1,143 @@
 {
-	"logins": [
-		{
-			"emailId": "hr@gmail.com",
-			"password": "hr@123",
-			"typeofuser": "hr",
-			"id": "b4e6"
-		},
-		{
-			"emailId": "me@mail.com",
-			"password": "p@123",
-			"typeofuser": "employee",
-			"id": "2198"
-		},
-		{
-			"id": "c539",
-			"emailId": "j@mail.com",
-			"password": "password1",
-			"typeofuser": "employee"
-		},
-		{
-			"id": "0fe8",
-			"emailId": "bm@mail.com",
-			"password": "password1",
-			"typeofuser": "employee"
-		},
-		{
-			"id": "71a4",
-			"emailId": "rm@mail.com",
-			"password": "pass123",
-			"typeofuser": "employee"
-		},
-		{
-			"id": "93c3",
-			"emailId": "p@mail.com",
-			"password": "pass123",
-			"typeofuser": "employee"
-		}
-	],
-	"employees": [
-		{
-			"id": "73c5",
-			"name": "joe",
-			"lname": "mo",
-			"department": "IT",
-			"position": "it man",
-			"email": "j@mail.com",
-			"phone": "1231231234"
-		},
-		{
-			"id": "db2f",
-			"name": "b",
-			"lname": "bman",
-			"age": 40,
-			"department": "IT",
-			"position": "it man",
-			"email": "b@mail.com",
-			"phone": "1231231234",
-			"joiningDate": "2025-10-04",
-			"leaveStatus": "available",
-			"appliedLeave": "no",
-			"createdAt": "2025-10-05T01:59:40.486Z",
-			"createdBy": "HR"
-		},
-		{
-			"id": "8ab2",
-			"name": "big",
-			"lname": "moe",
-			"department": "HR",
-			"position": "hr man",
-			"email": "bm@mail.com",
-			"phone": "1231231234"
-		},
-		{
-			"id": "acdb",
-			"name": "scar",
-			"lname": "face",
-			"department": "Operations",
-			"position": "ops man",
-			"email": "sf@mail.com",
-			"phone": "1231231234"
-		},
-		{
-			"id": "fd3a",
-			"name": "remove",
-			"lname": "me",
-			"department": "IT",
-			"position": "it man",
-			"email": "rm@mail.com",
-			"phone": "12131231234"
-		},
-		{
-			"id": "8ebe",
-			"name": "whiney",
-			"lname": "joe",
-			"department": "HR",
-			"position": "hr man",
-			"email": "p@mail.com",
-			"phone": "1231231234"
-		}
-	],
-	"leaveRequests": [
-		{
-			"id": "542c",
-			"employeeId": "fd3a",
-			"employeeName": "remove me",
-			"employeeEmail": "rm@mail.com",
-			"leaveType": "sick",
-			"startDate": "2025-10-07",
-			"endDate": "2025-10-10",
-			"days": 4,
-			"reason": "tummy",
-			"status": "approved",
-			"appliedDate": "2025-10-07T23:01:49.079Z",
-			"hrComment": "git that fixed",
-			"processedDate": "2025-10-07T23:03:03.751Z"
-		},
-		{
-			"id": "aa99",
-			"employeeId": "8ebe",
-			"employeeName": "whiney joe",
-			"employeeEmail": "p@mail.com",
-			"leaveType": "emergency",
-			"startDate": "2025-10-07",
-			"endDate": "2025-10-07",
-			"days": 1,
-			"reason": "toe hurts",
-			"status": "rejected",
-			"appliedDate": "2025-10-07T23:06:51.519Z",
-			"hrComment": "not today",
-			"processedDate": "2025-10-07T23:07:46.885Z"
-		}
-	]
+  "logins": [
+    {
+      "emailId": "hr@gmail.com",
+      "password": "hr@123",
+      "typeofuser": "hr",
+      "id": "b4e6"
+    },
+    {
+      "emailId": "me@mail.com",
+      "password": "p@123",
+      "typeofuser": "employee",
+      "id": "2198"
+    },
+    {
+      "id": "c539",
+      "emailId": "j@mail.com",
+      "password": "password1",
+      "typeofuser": "employee"
+    },
+    {
+      "id": "0fe8",
+      "emailId": "bm@mail.com",
+      "password": "password1",
+      "typeofuser": "employee"
+    },
+    {
+      "id": "71a4",
+      "emailId": "rm@mail.com",
+      "password": "pass123",
+      "typeofuser": "employee"
+    },
+    {
+      "id": "93c3",
+      "emailId": "p@mail.com",
+      "password": "pass123",
+      "typeofuser": "employee"
+    }
+  ],
+  "employees": [
+    {
+      "id": "73c5",
+      "name": "joe",
+      "lname": "mo",
+      "department": "IT",
+      "position": "it man",
+      "email": "j@mail.com",
+      "phone": "1231231234"
+    },
+    {
+      "id": "db2f",
+      "name": "b",
+      "lname": "bman",
+      "age": 40,
+      "department": "IT",
+      "position": "it man",
+      "email": "b@mail.com",
+      "phone": "1231231234",
+      "joiningDate": "2025-10-04",
+      "leaveStatus": "available",
+      "appliedLeave": "no",
+      "createdAt": "2025-10-05T01:59:40.486Z",
+      "createdBy": "HR"
+    },
+    {
+      "id": "8ab2",
+      "name": "big",
+      "lname": "moe",
+      "department": "HR",
+      "position": "hr man",
+      "email": "bm@mail.com",
+      "phone": "1231231234"
+    },
+    {
+      "id": "acdb",
+      "name": "scar",
+      "lname": "face",
+      "department": "Operations",
+      "position": "ops man",
+      "email": "sf@mail.com",
+      "phone": "1231231234"
+    },
+    {
+      "id": "fd3a",
+      "name": "remove",
+      "lname": "me",
+      "department": "IT",
+      "position": "it man",
+      "email": "rm@mail.com",
+      "phone": "12131231234"
+    },
+    {
+      "id": "8ebe",
+      "name": "whiney",
+      "lname": "joe",
+      "department": "HR",
+      "position": "hr man",
+      "email": "p@mail.com",
+      "phone": "1231231234"
+    },
+    {
+      "id": "66f4",
+      "name": "addedby",
+      "lname": "HR",
+      "department": "Finance",
+      "position": "money guy",
+      "email": "mg@mail.com",
+      "phone": "1231231234"
+    }
+  ],
+  "leaveRequests": [
+    {
+      "id": "542c",
+      "employeeId": "fd3a",
+      "employeeName": "remove me",
+      "employeeEmail": "rm@mail.com",
+      "leaveType": "sick",
+      "startDate": "2025-10-07",
+      "endDate": "2025-10-10",
+      "days": 4,
+      "reason": "tummy",
+      "status": "approved",
+      "appliedDate": "2025-10-07T23:01:49.079Z",
+      "hrComment": "git that fixed",
+      "processedDate": "2025-10-07T23:03:03.751Z"
+    },
+    {
+      "id": "aa99",
+      "employeeId": "8ebe",
+      "employeeName": "whiney joe",
+      "employeeEmail": "p@mail.com",
+      "leaveType": "emergency",
+      "startDate": "2025-10-07",
+      "endDate": "2025-10-07",
+      "days": 1,
+      "reason": "toe hurts",
+      "status": "rejected",
+      "appliedDate": "2025-10-07T23:06:51.519Z",
+      "hrComment": "not today",
+      "processedDate": "2025-10-07T23:07:46.885Z"
+    }
+  ]
 }
