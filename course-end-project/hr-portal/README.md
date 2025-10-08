@@ -115,12 +115,12 @@ A clean, professional HR Portal built with React that provides streamlined emplo
 ## 📸 Screenshots
 
 <div align="left">
-  <img src="img/login-screenshot.png" alt="Login" width="300"/>
+  <img src="img/login-screenshot.png" alt="Login" width="415"/>
   <p><em>Login</em></p>
 </div>
 
 <div align="left">
-  <img src="img/hr-screenshot.png" alt="HR Dashboard" width="300"/>
+  <img src="img/hr-screenshot.png" alt="HR Dashboard" width="400"/>
   <p><em>HR Dashboard</em></p>
 </div>
 
